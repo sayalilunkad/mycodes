@@ -66,3 +66,7 @@ class MyStack(object):
         '''
         del self.mystack
         self.mystack = ()
+
+    def print_stack(self):
+        for i in self.mystack:
+            print(i)

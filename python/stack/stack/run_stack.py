@@ -2,8 +2,10 @@
 # created in the other program Stack.py
 
 import pprint
-import stack
 import sys
+import unittest
+
+import stack
 
 
 class Interactive_Stuff(object):
@@ -26,9 +28,12 @@ class Interactive_Stuff(object):
         '''Initializes new stack.'''
 
         def __init__(self):
-            '''Initialize new stack instance.'''
+            pass
 
-            return stack.MyStack()
+        def return_stack(self):
+            '''Initializes and returns new stack.'''
+            self.s = stack.MyStack()
+            return self.s
 
     def input(self, msg):
         '''Responsible for taking input from the user!'''
@@ -64,13 +69,54 @@ class Interactive_Stuff(object):
 
     def new_stack(self):
         '''Create and return a new stack object.'''
-
-        return self.init_stack()
+        new = self.init_stack()
+        return new.return_stack()
 
     def looper(self):
         '''Run the program menu in continous loop.'''
-        pass
+        choice = 0
+        nstack = self.new_stack()
+        while choice <= 4:
+            self.menu()
+            choice = input("Enter your choice:")
+            if choice == 1:
+                # Push to stack
+                val = input("Enter element to push:")
+                nstack.push(val)
+            elif choice == 2:
+                # Pop from stack
+                nstack.pop()
+            elif choice == 3:
+                # Check stack status
+                empty = nstack.isEmpty()
+                if empty == 0:
+                    self.cprint("Empty stack!!")
+                else:
+                    self.cprint("Not Empty")
+            elif choice == 4:
+                # Print stack elements
+                self.cprint("Elements of the stack")
+                nstack.print_stack()
+            elif choice == 5:
+                # Exit
+                self.exit('Bye')
 
     def menu(self):
         '''Print the menu and wait for the option that the use chooses.'''
-        pass
+        print("""
+                        ***MENU***
+                1. Push Element to stack
+                2. Pop Element from stack
+                3. Check if stack is empty
+                4. Print stack elements
+                5 .Exit""")
+
+
+class testing(unittest.TestCase):
+
+    def test_stack(self):
+        start = Interactive_Stuff()
+        start.looper()
+
+if __name__ == "__main__":
+    unittest.main()
