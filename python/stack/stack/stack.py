@@ -66,30 +66,3 @@ class MyStack(object):
         '''
         del self.mystack
         self.mystack = ()
-
-
-# Nosetests
-def test_can_create_a_stack():
-    stack = MyStack()
-    assert stack
-
-
-def test_to_check_pop_on_empty_stack():
-    stack = MyStack()
-    stack.pop()
-
-
-def test_to_push_to_stack():
-    stack = MyStack()
-    stack.push(1)
-    stack.push(2)
-    stack.push(3)
-    assert (1, 2, 3) == stack.mystack
-
-
-def test_to_pop_element_from_stack():
-    stack = MyStack()
-    stack.push(5)
-    stack.push(7)
-    stack.push(9)
-    stack.pop()
