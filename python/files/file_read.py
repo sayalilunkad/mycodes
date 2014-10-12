@@ -7,8 +7,7 @@ import os
 class MyFile():
     def get_file(self):
         '''Gets a file name.'''
-
-        self.fname = "/home/sayali/Downloads/application_form_english.pdf"
+        self.fname = "/home/sayali/sample.txt"
         return self.fname
 
     def open_file(self):
@@ -39,14 +38,16 @@ class MyFile():
         '''Shows memory used to read file.'''
 
         f = self.open_file()
-        memory = 0
+        # memory = 0
         for lines in f:
-            memory += sys.getsizeof(lines)
-        print("Memory in bytes: %d") % (memory)
+            pass
+        #    memory += sys.getsizeof(lines)
+        # print("Memory in bytes: %d") % (memory)
 
-
-if __name__ == '__main__':
+'''
+    if __name__ == '__main__':
     myfile = MyFile()
-    myfile.get_file_size()
-    myfile.get_line_count()
+    # myfile.get_file_size()
+    # myfile.get_line_count()
     myfile.get_memory_useage()
+'''
