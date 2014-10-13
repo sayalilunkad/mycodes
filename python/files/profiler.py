@@ -1,5 +1,8 @@
 # Used for profiling file_read.py
-
+'''
+Usage:
+    python -m memory_profiler profiler.py
+'''
 import file_read
 
 
