@@ -52,11 +52,12 @@ class MyStack(object):
         if self.isEmpty() == 1:
             i = len(self.mystack) - 1
             newstack = self.mystack[:i]
-            print("Element poped: %d") % (self.mystack[i])
+            poped_element = self.mystack[i]
             self.reinit()
             self.mystack = newstack
+            return poped_element
         else:
-            print("Cannot pop: Empty Stack")
+            return None
 
     def reinit(self):
         '''Reinitializes the stack variable

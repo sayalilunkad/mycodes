@@ -85,7 +85,11 @@ class Interactive_Stuff(object):
                 nstack.push(val)
             elif choice == 2:
                 # Pop from stack
-                nstack.pop()
+                poped_element = nstack.pop()
+                if poped_element is None:
+                    self.cprint("Empty Stack!!")
+                else:
+                    print("Popped element is: %s") % (poped_element)
             elif choice == 3:
                 # Check stack status
                 empty = nstack.isEmpty()
