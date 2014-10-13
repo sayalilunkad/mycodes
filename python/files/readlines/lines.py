@@ -2,6 +2,10 @@
 import sys
 
 import stack
+'''
+Usage:
+    python lines.py filename number_of_lines_to_read
+'''
 
 
 class line():
