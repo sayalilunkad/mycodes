@@ -1,6 +1,6 @@
 # Program which uses 20KB memory to read 1GB text.
 
-import sys
+# import sys
 import os
 
 
@@ -34,20 +34,9 @@ class MyFile():
             count += 1
         print("Total lines: %d") % (count)
 
-    def get_memory_useage(self):
-        '''Shows memory used to read file.'''
-
+    def read_file(self):
+        '''Reads the file.'''
         f = self.open_file()
-        # memory = 0
         for lines in f:
-            pass
-        #    memory += sys.getsizeof(lines)
-        # print("Memory in bytes: %d") % (memory)
-
-'''
-    if __name__ == '__main__':
-    myfile = MyFile()
-    # myfile.get_file_size()
-    # myfile.get_line_count()
-    myfile.get_memory_useage()
-'''
+            buff = lines
+            return buff

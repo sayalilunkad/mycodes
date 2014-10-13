@@ -9,7 +9,7 @@ import file_read
 @profile
 def my_func():
     fname = file_read.MyFile()
-    fname.get_memory_useage()
+    fname.read_file()
 
 if __name__ == '__main__':
     my_func()
