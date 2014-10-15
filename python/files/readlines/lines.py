@@ -39,7 +39,12 @@ class line():
             print(sentence)
 
 
-if __name__ == '__main__':
+@profile
+def main():
     test = line()
     test.push_all_lines_to_stack()
     test.pop_required_lines()
+
+
+if __name__ == '__main__':
+    main()
