@@ -3,7 +3,7 @@
 Usage:
     python -m memory_profiler profiler.py
 '''
-import file_read
+import readfiles.file_read as file_read
 
 
 @profile
