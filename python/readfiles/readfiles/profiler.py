@@ -9,7 +9,7 @@ import readfiles.file_read as file_read
 @profile
 def my_func():
     fname = file_read.MyFile()
-    fname.read_file()
+    fname.read_file("sample.txt")
 
 if __name__ == '__main__':
     my_func()
