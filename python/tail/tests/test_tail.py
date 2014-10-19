@@ -1,6 +1,6 @@
 from nose.tools import *
 
-import tail.tail as tail
+from tail import *
 
 
 def test_push():

@@ -1,7 +1,8 @@
 # Program to optimize reading of last n lines from a file.
 import sys
 
-import stack
+from tail import file_read
+from tail import stack
 '''
 Usage:
     python tail.py filename number_of_lines_to_read
@@ -16,14 +17,23 @@ class line():
             2)Number of lines to be read
             3)Stack
         '''
-        self.fhandle = open(sys.argv[1], 'r')
         self.lines_to_read = int(sys.argv[2])
+        self.fileread = file_read.MyFile()
         self.mystack = stack.MyStack()
 
-    def push_all_lines_to_stack(self):
+    def push_lines_to_stack(self):
         '''Pushes all the lines in file to the stack.'''
-        for lines in self.fhandle:
-            self.mystack.push(lines)
+        fhandle = self.fileread.open_file(sys.argv[1])
+        linecount = self.fileread.get_line_count(sys.argv[1])
+        tempfile = file_read.MyFile()
+        handle = tempfile.open_file(name="output.txt", mode="a")
+        for lines in fhandle:
+            if linecount <= self.lines_to_read:
+                # self.mystack.push(lines)
+                handle.write(lines)
+            else:
+                linecount -= 1
+        print("Check output.txt for the output!")
 
     def pop_required_lines(self):
         '''Pops required lines.'''
@@ -42,8 +52,8 @@ class line():
 @profile
 def main():
     test = line()
-    test.push_all_lines_to_stack()
-    test.pop_required_lines()
+    test.push_lines_to_stack()
+    # test.pop_required_lines()
 
 
 if __name__ == '__main__':

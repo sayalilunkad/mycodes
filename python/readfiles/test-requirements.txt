@@ -1,4 +1,5 @@
 distribute
 nose
 virtualenv
+psutil
 memory_profiler
