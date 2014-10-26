@@ -4,6 +4,10 @@ import os
 
 
 class MyFile():
+
+    def __init__(self, filename):
+        self.f = self.open_file(filename)
+
     def get_file(self, name):
         '''Gets a file name.'''
         self.fname = name
@@ -30,10 +34,7 @@ class MyFile():
             count += 1
         return(count)
 
-    def read_file(self, name):
+    def read_file(self):
         '''Reads the file.'''
-        buff = ""
-        f = self.open_file(name)
-        for lines in f:
-            buff += lines
-            return buff
+        for c in self.f.readlines():
+            yield c

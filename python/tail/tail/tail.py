@@ -26,7 +26,7 @@ class line():
         fhandle = self.fileread.open_file(sys.argv[1])
         linecount = self.fileread.get_line_count(sys.argv[1])
         tempfile = file_read.MyFile()
-        handle = tempfile.open_file(name="output.txt", mode="a")
+        handle = tempfile.open_file(name="output.txt", mode="w")
         for lines in fhandle:
             if linecount <= self.lines_to_read:
                 # self.mystack.push(lines)

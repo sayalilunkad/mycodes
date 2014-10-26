@@ -3,13 +3,15 @@
 Usage:
     python -m memory_profiler profiler.py
 '''
-import readfiles.file_read as file_read
+from readfiles import file_read
 
 
 @profile
 def my_func():
-    fname = file_read.MyFile()
-    fname.read_file("sample.txt")
+    fname = file_read.MyFile('sample.txt')
+    for lines in fname.read_file():
+        # print lines
+        pass
 
 if __name__ == '__main__':
     my_func()
