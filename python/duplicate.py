@@ -30,17 +30,17 @@ class TestDuplicate(unittest.TestCase):
     def test_birthday_paradox(self):
         i = 1
         counter = 0
-        trials = 100
+        trials = 1000
         while i<=trials:
-            birth_days = [random.randint(1,31) for num in range(1,24)]
-            birth_months = [random.randint(1,12) for num in range(1,24)]
+            birth_days = [random.randint(1,31) for num in range(1,40)]
+            birth_months = [random.randint(1,12) for num in range(1,40)]
             birth_date = zip(birth_days, birth_months)
             if has_duplicate(birth_date)==True:
                 counter +=1
             i +=1
 
-        probability = (counter/float(trials))
-        print "The probability of two people sharing their birthdays: %s" % probability
+        probability = (float(counter)/float(trials))
+        print "The probability of two people sharing their birthdays: %f" % probability
         self.assertTrue(True)
 
 
