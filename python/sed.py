@@ -2,6 +2,7 @@
 # -*- coding: utf8 -*-
 
 import re
+import sys
 # Write a function called sed that takes as arguments a pattern string, a
 # replacement string, and two file names; it should read the first file and
 # write the contents into the second file(creating it if necessary) If the
@@ -14,12 +15,27 @@ import re
 def sed(pattern, replace, file1, file2):
     try:
         fname1 = open(file1, 'r')
-    fname2 = open(file2, 'w+')
+    except IOError as e:
+        print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        sys.exit(0)
+    try:
+        fname2 = open(file2, 'w+')
+    except IOError as e:
+        print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        sys.exit(0)
     for line in fname1:
         line = re.sub(r''+re.escape(pattern), replace, line)
         fname2.write(line)
-    fname2.close()
-    fname1.close()
+    try:
+        fname2.close()
+    except IOError as e:
+        print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        sys.exit(0)
+    try:
+        fname1.close()
+    except IOError as e:
+        print "I/O error({0}): {1}".format(e.errno, e.strerror)
+        sys.exit(0)
 
 if __name__ == '__main__':
     sed('test', 'error', '/tmp/original.txt', '/tmp/test.txt')
