@@ -3,6 +3,8 @@
 
 import re
 import sys
+import unittest
+
 # Write a function called sed that takes as arguments a pattern string, a
 # replacement string, and two file names; it should read the first file and
 # write the contents into the second file(creating it if necessary) If the
@@ -37,5 +39,13 @@ def sed(pattern, replace, file1, file2):
         print "I/O error({0}): {1}".format(e.errno, e.strerror)
         sys.exit(0)
 
+class TestSed(unittest.TestCase):
+    def test_sed(self):
+        file_test = open('/tmp/original.txt', 'w')
+        string = "Unittest is a testing module to write test cases in python."
+        file_test.write(string)
+        file_test.close()
+        sed('test', 'error', '/tmp/original.txt', '/tmp/test.txt')
+
 if __name__ == '__main__':
-    sed('test', 'error', '/tmp/original.txt', '/tmp/test.txt')
+    unittest.main()
