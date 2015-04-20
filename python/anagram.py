@@ -14,14 +14,7 @@ import sys
 
 def file_to_list():
     fname = open("/tmp/wordlist.txt", 'r')
-    word_list = []
-    while(True):
-        line = fname.readline()
-        if line == '':
-            break
-        else:
-            line_len = len(line)
-            word_list.append(line[:line_len-1])
+    word_list = fname.read().splitlines()
     return word_list
 
 
